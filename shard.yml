@@ -1,0 +1,8 @@
+name: result
+version: 1.0.0
+crystal: 0.35.1
+
+authors:
+  - Nicolas Talle <dev@nicolab.net>
+
+license: MIT
