@@ -13,7 +13,7 @@ Adapted to be productive in Crystal and [Domain-Driven Design (DDD)](https://en.
 ```yaml
    dependencies:
      result:
-       github: nicolab/result
+       github: nicolab/crystal-result
        version: ~> 1.1.0 # Check the latest version!
 ```
 
