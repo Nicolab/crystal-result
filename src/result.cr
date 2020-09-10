@@ -33,12 +33,32 @@
 # end
 # ```
 macro try!(result)
-  if {{result}}.ok?
-    {{result}}.unwrap
+  %res = {{result}}
+
+  if %res.ok?
+    %res.unwrap
   else
     # returns error
-    return {{result}}
+    return %res
   end
+end
+
+# Try to unwrap *value* (like `Result#unwrap`).
+# If value is not a `Result` (`Ok` or `Err`), *value* is simply forwarded.
+# > NOTE: To proceed, this macro checks if *value* `responds_to` `unwrap` method.
+#
+# ```
+# res = Ok.done("hello")
+# value = unwrap!(res) # => "hello"
+#
+# res = Err.fail("Oops")
+# value = unwrap!(res) # => raise Exception.new "Oops"
+#
+# foo = "bar"
+# value2 = unwrap!(foo) # => "bar"
+# ```
+macro unwrap!(value)
+  {{value}}.responds_to?(:unwrap) ? {{value}}.unwrap : {{value}}
 end
 
 # Takes a *value* and make a `Result`.

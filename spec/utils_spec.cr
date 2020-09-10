@@ -13,6 +13,12 @@ def test_try_multiply(res)
   data
 end
 
+def test_unwrap_multiply(value)
+  data = unwrap! value
+  data = data * 2
+  data
+end
+
 def test_result_ok(data)
   result! data * 2
 end
@@ -49,6 +55,29 @@ describe "try!(result)" do
         "Oops"
       ) do
         res.unwrap
+      end
+    end
+  end
+end
+
+describe "unwrap!(value)" do
+  context "Ok" do
+    it "should unwrap a `Result` without blocking the execution of the code" do
+      test_unwrap_multiply(Ok.done(2)).should eq 4
+    end
+
+    it "should forward a value without blocking the execution of the code" do
+      test_unwrap_multiply(2).should eq 4
+    end
+  end
+
+  context "Err" do
+    it "should raise an error" do
+      expect_raises(
+        Exception,
+        "Oops"
+      ) do
+        test_unwrap_multiply(Err.fail("Oops"))
       end
     end
   end

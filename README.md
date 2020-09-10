@@ -14,7 +14,7 @@ Adapted to be productive in Crystal and [Domain-Driven Design (DDD)](https://en.
    dependencies:
      result:
        github: nicolab/result
-       version: ~> 1.0.0 # Check the latest version!
+       version: ~> 1.1.0 # Check the latest version!
 ```
 
 2. Run `shards install`
@@ -59,6 +59,16 @@ def something(res : Result) : Result
   # `Err` / `ErrType::Fail`
   Err.fail "Oops!"
 end
+
+# Try to unwrap a *Result* (like `Result#unwrap`) or forward the value if it is not a `Result`.
+res = Ok.done("hello")
+value = unwrap!(res) # => "hello"
+
+res = Err.fail("Oops")
+value = unwrap!(res) # => raise Exception.new "Oops"
+
+foo = "bar"
+value2 = unwrap!(foo) # => "bar"
 ```
 
 To go further, `Result` works wonderfully with [fuzzineer/match-crystal](https://github.com/scatterfish/match-crystal).
