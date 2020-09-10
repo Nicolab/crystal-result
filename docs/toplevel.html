@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.34.0">
-<meta name="crystal_docs.project_version" content="1.0.0">
+<meta name="crystal_docs.project_version" content="master-dev">
 <meta name="crystal_docs.project_name" content="result">
 
 
@@ -18,7 +18,7 @@
 </svg>
 
   <meta id="repository-name" content="result">
-  <title>Top Level Namespace - result 1.0.0</title>
+  <title>Top Level Namespace - result master-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        1.0.0
+        master-dev
       </span>
     </div>
   </div>
@@ -285,6 +285,13 @@
         
       </li>
     
+      <li class="entry-summary">
+        <a href="#unwrap!(value)-macro" class="signature"><strong>unwrap!</strong>(value)</a>
+        
+          <div class="summary"><p>Try to unwrap <em>value</em> (like <code>Result#unwrap</code>).</p></div>
+        
+      </li>
+    
   </ul>
 
 
@@ -379,6 +386,37 @@
   <span class="c"># `Err` / `ErrType::Fail`</span>
   <span class="t">Err</span>.fail <span class="s">&quot;Oops!&quot;</span>
 <span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unwrap!(value)-macro">
+      <div class="signature">
+        
+        macro <strong>unwrap!</strong>(value)
+
+        <a class="method-permalink" href="#unwrap!(value)-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Try to unwrap <em>value</em> (like <code>Result#unwrap</code>).
+If value is not a <code><a href="Result.html">Result</a></code> (<code><a href="Ok.html">Ok</a></code> or <code><a href="Err.html">Err</a></code>), <em>value</em> is simply forwarded.</p>
+
+<blockquote>NOTE: To proceed, this macro checks if <em>value</em> <code>responds_to</code> <code>unwrap</code> method.</blockquote>
+
+<pre><code>res <span class="o">=</span> <span class="t">Ok</span>.done(<span class="s">&quot;hello&quot;</span>)
+value <span class="o">=</span> unwrap!(res) <span class="c"># =&gt; &quot;hello&quot;</span>
+
+res <span class="o">=</span> <span class="t">Err</span>.fail(<span class="s">&quot;Oops&quot;</span>)
+value <span class="o">=</span> unwrap!(res) <span class="c"># =&gt; raise Exception.new &quot;Oops&quot;</span>
+
+foo <span class="o">=</span> <span class="s">&quot;bar&quot;</span>
+value2 <span class="o">=</span> unwrap!(foo) <span class="c"># =&gt; &quot;bar&quot;</span></code></pre>
         </div>
       
       <br/>

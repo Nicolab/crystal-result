@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.34.0">
-<meta name="crystal_docs.project_version" content="1.0.0">
+<meta name="crystal_docs.project_version" content="master-dev">
 <meta name="crystal_docs.project_name" content="result">
 
 
@@ -18,7 +18,7 @@
 </svg>
 
   <meta id="repository-name" content="result">
-  <title>result 1.0.0</title>
+  <title>result master-dev</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        1.0.0
+        master-dev
       </span>
     </div>
   </div>
@@ -241,7 +241,7 @@
 <pre><code class="language-yaml">   dependencies:
      result:
        github: nicolab/result
-       version: ~> 1.0.0 # Check the latest version!</code></pre>
+       version: ~> 1.1.0 # Check the latest version!</code></pre>
 
 <ol><li>Run <code>shards install</code></li></ol>
 
@@ -287,7 +287,17 @@
   <span class="c"># Or returns an error</span>
   <span class="c"># `Err` / `ErrType::Fail`</span>
   <span class="t">Err</span>.fail <span class="s">&quot;Oops!&quot;</span>
-<span class="k">end</span></code></pre>
+<span class="k">end</span>
+
+<span class="c"># Try to unwrap a *Result* (like `Result#unwrap`) or forward the value if it is not a `Result`.</span>
+res <span class="o">=</span> <span class="t">Ok</span>.done(<span class="s">&quot;hello&quot;</span>)
+value <span class="o">=</span> unwrap!(res) <span class="c"># =&gt; &quot;hello&quot;</span>
+
+res <span class="o">=</span> <span class="t">Err</span>.fail(<span class="s">&quot;Oops&quot;</span>)
+value <span class="o">=</span> unwrap!(res) <span class="c"># =&gt; raise Exception.new &quot;Oops&quot;</span>
+
+foo <span class="o">=</span> <span class="s">&quot;bar&quot;</span>
+value2 <span class="o">=</span> unwrap!(foo) <span class="c"># =&gt; &quot;bar&quot;</span></code></pre>
 
 <p>To go further, <code><a href="Result.html">Result</a></code> works wonderfully with <a href="https://github.com/scatterfish/match-crystal" target="_blank">fuzzineer/match-crystal</a>.</p>
 
