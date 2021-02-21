@@ -6,7 +6,6 @@
 # ------------------------------------------------------------------------------
 
 require "./spec_helper"
-require "match-crystal"
 
 describe Result do
   {% begin %}

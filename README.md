@@ -14,7 +14,7 @@ Adapted to be productive in Crystal and [Domain-Driven Design (DDD)](https://en.
    dependencies:
      result:
        github: nicolab/crystal-result
-       version: ~> 1.1.0 # Check the latest version!
+       version: ~> 2.0.0 # Check the latest version!
 ```
 
 2. Run `shards install`
