@@ -107,6 +107,10 @@ struct Ok(T) < Result(T)
   end
 
   # Syntax sugar for `Ok.done(value)`.
+  #
+  # ```
+  # Ok["hello"] # => same as Ok.done("hello")
+  # ```
   def self.[](value) : Ok
     self.done(value)
   end
@@ -122,8 +126,8 @@ struct Ok(T) < Result(T)
   end
 
   {% for type in ok_types %}
-  # Creates a new `Ok` instance with the status `{{type.id}}`.
-  # This method is a shortcut for `Ok.new {{type.id}}, value`.
+  # Creates a new `Ok` instance with the status `:{{type.id}}`.
+  # This method is a shortcut for `Ok.new :{{type.id}}, value`.
   #
   # ```
   # res = Ok.{{type.id}}(value)
@@ -171,6 +175,10 @@ struct Err(T) < Result(T)
 
   # Syntax sugar for `Err.fail(exception)`.
   # *exception* must be an `Exception` or a `String`.
+  #
+  # ```
+  # Err["Oops"] # => same as Err.fail("Oops")
+  # ```
   def self.[](exception) : Err
     self.fail(exception)
   end
@@ -188,8 +196,8 @@ struct Err(T) < Result(T)
   end
 
   {% for type in err_types %}
-  # Creates a new `Err` instance with the status `{{type.id}}`.
-  # This method is a shortcut for `Err.new {{type.id}}, exception`.
+  # Creates a new `Err` instance with the status `:{{type.id}}`.
+  # This method is a shortcut for `Err.new :{{type.id}}, exception`.
   #
   # ```
   # res = Err.{{type.id}}(exception)
