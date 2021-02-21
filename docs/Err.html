@@ -124,7 +124,7 @@
   </h2>
   
     
-      <a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">
+      <a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">
         result.cr
       </a>
     
@@ -155,21 +155,21 @@
       <li class="entry-summary">
         <a href="#conflict(exception):Err-class-method" class="signature"><strong>.conflict</strong>(exception) : Err</a>
         
-          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#conflict(exception):Err-class-method">.conflict</a></code>.</p></div>
+          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:conflict</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#fail(exception):Err-class-method" class="signature"><strong>.fail</strong>(exception) : Err</a>
         
-          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#fail(exception):Err-class-method">.fail</a></code>.</p></div>
+          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:fail</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#input(exception):Err-class-method" class="signature"><strong>.input</strong>(exception) : Err</a>
         
-          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#input(exception):Err-class-method">.input</a></code>.</p></div>
+          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:input</code>.</p></div>
         
       </li>
     
@@ -188,21 +188,21 @@
       <li class="entry-summary">
         <a href="#not_allowed(exception):Err-class-method" class="signature"><strong>.not_allowed</strong>(exception) : Err</a>
         
-          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#not_allowed(exception):Err-class-method">.not_allowed</a></code>.</p></div>
+          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:not_allowed</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#not_found(exception):Err-class-method" class="signature"><strong>.not_found</strong>(exception) : Err</a>
         
-          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#not_found(exception):Err-class-method">.not_found</a></code>.</p></div>
+          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:not_found</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#timeout(exception):Err-class-method" class="signature"><strong>.timeout</strong>(exception) : Err</a>
         
-          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#timeout(exception):Err-class-method">.timeout</a></code>.</p></div>
+          <div class="summary"><p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:timeout</code>.</p></div>
         
       </li>
     
@@ -408,12 +408,14 @@
           
           <p>Syntax sugar for <code><a href="Err.html#fail(exception):Err-class-method">Err.fail(exception)</a></code>.
 <em>exception</em> must be an <code>Exception</code> or a <code>String</code>.</p>
+
+<pre><code class="language-crystal"><span class="t">Err</span>[<span class="s">&quot;Oops&quot;</span>] <span class="c"># =&gt; same as Err.fail(&quot;Oops&quot;)</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -428,8 +430,8 @@
       
         <div class="doc">
           
-          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#conflict(exception):Err-class-method">.conflict</a></code>.
-This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> conflict, exception</code>.</p>
+          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:conflict</code>.
+This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> :conflict, exception</code>.</p>
 
 <pre><code class="language-crystal">res <span class="o">=</span> <span class="t">Err</span>.conflict(exception)
 res.status <span class="c"># =&gt; :conflict</span>
@@ -444,7 +446,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -459,8 +461,8 @@ pp res.value</code></pre>
       
         <div class="doc">
           
-          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#fail(exception):Err-class-method">.fail</a></code>.
-This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> fail, exception</code>.</p>
+          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:fail</code>.
+This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> :fail, exception</code>.</p>
 
 <pre><code class="language-crystal">res <span class="o">=</span> <span class="t">Err</span>.fail(exception)
 res.status <span class="c"># =&gt; :fail</span>
@@ -475,7 +477,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -490,8 +492,8 @@ pp res.value</code></pre>
       
         <div class="doc">
           
-          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#input(exception):Err-class-method">.input</a></code>.
-This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> input, exception</code>.</p>
+          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:input</code>.
+This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> :input, exception</code>.</p>
 
 <pre><code class="language-crystal">res <span class="o">=</span> <span class="t">Err</span>.input(exception)
 res.status <span class="c"># =&gt; :input</span>
@@ -506,7 +508,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -527,7 +529,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -543,7 +545,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -558,8 +560,8 @@ pp res.value</code></pre>
       
         <div class="doc">
           
-          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#not_allowed(exception):Err-class-method">.not_allowed</a></code>.
-This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> not_allowed, exception</code>.</p>
+          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:not_allowed</code>.
+This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> :not_allowed, exception</code>.</p>
 
 <pre><code class="language-crystal">res <span class="o">=</span> <span class="t">Err</span>.not_allowed(exception)
 res.status <span class="c"># =&gt; :not_allowed</span>
@@ -574,7 +576,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -589,8 +591,8 @@ pp res.value</code></pre>
       
         <div class="doc">
           
-          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#not_found(exception):Err-class-method">.not_found</a></code>.
-This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> not_found, exception</code>.</p>
+          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:not_found</code>.
+This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> :not_found, exception</code>.</p>
 
 <pre><code class="language-crystal">res <span class="o">=</span> <span class="t">Err</span>.not_found(exception)
 res.status <span class="c"># =&gt; :not_found</span>
@@ -605,7 +607,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -620,8 +622,8 @@ pp res.value</code></pre>
       
         <div class="doc">
           
-          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code><a href="Err.html#timeout(exception):Err-class-method">.timeout</a></code>.
-This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> timeout, exception</code>.</p>
+          <p>Creates a new <code><a href="Err.html">Err</a></code> instance with the status <code>:timeout</code>.
+This method is a shortcut for <code><a href="Err.html#new(status:Symbol,exception:T)-class-method">Err.new</a> :timeout, exception</code>.</p>
 
 <pre><code class="language-crystal">res <span class="o">=</span> <span class="t">Err</span>.timeout(exception)
 res.status <span class="c"># =&gt; :timeout</span>
@@ -636,7 +638,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -671,7 +673,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -729,7 +731,7 @@ pp res.value</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -751,7 +753,7 @@ This method raises <em>exception</em>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -773,7 +775,7 @@ Returns a <code>Exception</code> or a <code>String</code></p>
       <br/>
       <div>
         
-          [<a href="https://github.com/Nicolab/crystal-result/blob/e8316f56440774b22e715e21f4c350dff2f05b46/src/result.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/Nicolab/crystal-result/blob/faa4096d4e3b62fb39c6f75091d1bcfbb2972ddf/src/result.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
