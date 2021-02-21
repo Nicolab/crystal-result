@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Nicolab/crystal-result.svg?branch=master)](https://travis-ci.com/Nicolab/crystal-result) [![GitHub release](https://img.shields.io/github/release/Nicolab/crystal-result.svg)](https://github.com/Nicolab/crystal-result/releases) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://nicolab.github.io/crystal-result/)
 
-∠(・.-)―〉 →◎ `Result` adds _Monadic Error Handling_ capabilities to [Crystal lang](https://crystal-lang.org), inspired by `Result` in _Rust_ lang and Monad.
+∠(・.-)―〉 →◎ `Result` adds _Monadic Error Handling_ capabilities to [Crystal lang](https://crystal-lang.org), inspired by `Result` in _Rust_ lang, Monad and the _Elixir_ lang approach (state return).
 
 Adapted to be productive in Crystal and [Domain-Driven Design (DDD)](https://en.wikipedia.org/wiki/Domain-driven_design).
 
@@ -23,6 +23,7 @@ Adapted to be productive in Crystal and [Domain-Driven Design (DDD)](https://en.
 
 ```crystal
 require "result"
+require "result/utils"
 
 # With a basic *value*
 def something(value : Number) : Result
@@ -52,19 +53,19 @@ def something(res : Result) : Result
   # Wrap data into a `Result` struct:
 
   # Returns success
-  # `Ok` / `OkType::Done`
+  # `Ok` / `Ok.status # => :done`
   Ok.done data
 
   # Or returns an error
-  # `Err` / `ErrType::Fail`
+  # `Err` / `Err.status # => :fail`
   Err.fail "Oops!"
 end
 
 # Try to unwrap a *Result* (like `Result#unwrap`) or forward the value if it is not a `Result`.
-res = Ok.done("hello")
+res = Ok.done("hello") # or `Ok.new("hello")`
 value = unwrap!(res) # => "hello"
 
-res = Err.fail("Oops")
+res = Err.fail("Oops") # or `Err.new("Oops")`
 value = unwrap!(res) # => raise Exception.new "Oops"
 
 foo = "bar"
@@ -75,25 +76,67 @@ To go further, `Result` works wonderfully with [fuzzineer/match-crystal](https:/
 
 ```crystal
 require "result"
+require "result/utils"
 require "match-crystal"
 
 res = something()
 
+message = match res.status, {
+  :created   => "Created with success",
+  :destroyed => "Destroyed with success",
+  :pending   => "Pending task",
+  :input     => "Bad argument",
+  :fail      => "Failed",
+  _          => "anything else!",
+}
+
+puts message
+
+# other example
+
 message = match res, {
-  Ok::Created   => "Created with success",
-  Ok::Destroyed => "Destroyed with success",
-  Ok::Pending   => "Pending task",
-  Ok            => "Ok is good",
-  Err::Input    => "Bad argument",
-  Err           => ->{
+  Ok(String)              => "Ok is a good string",
+  res.status? :created    => "Created with success",
+  Ok                      => "It's ok",
+  Err(ArgumentError)      => "Bad argument",
+  res.status? :not_found  => "Not found",
+  Err                     => ->{
     puts "Block is supported using Proc syntax"
     "Error occurred"
   },
-  _             => "anything else!"
 }
 
 puts message
 ```
+
+Example with a `case`:
+
+```crystal
+message = case res
+  when .status? :created
+    "Created with success"
+  when .status? :destroyed
+    "Destroyed with success"
+  when .status? :pending
+    "Pending task"
+  when .status? :input
+    "Bad argument"
+  when .status? :not_found
+    "Not found"
+  when .status? :fail
+    "Failed"
+  when Ok
+    "Another success"
+  when Err
+    "Another error"
+  else
+    "Anything else!"
+  end
+
+puts message
+```
+
+Works well with a controller.
 
 ## Development
 
@@ -104,7 +147,7 @@ crystal tool format
 
 ## Contributing
 
-1. Fork it (https://github.com/Nicolab/result/fork)
+1. Fork it (https://github.com/Nicolab/crystal-result/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

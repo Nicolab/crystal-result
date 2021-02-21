@@ -7,6 +7,7 @@
 
 require "spec"
 require "../src/result"
+require "../src/utils"
 
 def test_ok(res, value)
   res.type.should eq :ok
@@ -17,6 +18,7 @@ def test_ok(res, value)
   res.class.err?.should be_false
   res.value.should eq value
   res.unwrap.should eq value
+  res.state[0].should eq :ok
 end
 
 def test_err(res, exception)
@@ -27,6 +29,7 @@ def test_err(res, exception)
   res.class.ok?.should be_false
   res.class.err?.should be_true
   res.value.should eq exception
+  res.state[0].should eq :err
 
   expect_raises(
     Exception,
