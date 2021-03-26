@@ -1,8 +1,13 @@
 name: result
-version: 2.0.0
-crystal: 0.36.1
+version: 2.0.1
+crystal: ">= 0.36.1"
 
 authors:
   - Nicolas Talle <dev@nicolab.net>
 
 license: MIT
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.14.1

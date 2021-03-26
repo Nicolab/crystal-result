@@ -1,6 +1,6 @@
 # Result
 
-[![Build Status](https://travis-ci.com/Nicolab/crystal-result.svg?branch=master)](https://travis-ci.com/Nicolab/crystal-result) [![GitHub release](https://img.shields.io/github/release/Nicolab/crystal-result.svg)](https://github.com/Nicolab/crystal-result/releases) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://nicolab.github.io/crystal-result/)
+[![CI Status](https://github.com/Nicolab/crystal-result/workflows/CI/badge.svg?branch=master)](https://github.com/Nicolab/crystal-result/actions) [![GitHub release](https://img.shields.io/github/release/Nicolab/crystal-result.svg)](https://github.com/Nicolab/crystal-result/releases) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://nicolab.github.io/crystal-result/)
 
 ∠(・.-)―〉 →◎ `Result` adds _Monadic Error Handling_ capabilities to [Crystal lang](https://crystal-lang.org), inspired by `Result` in _Rust_ lang, Monad and the _Elixir_ lang approach (state return).
 
@@ -14,7 +14,7 @@ Adapted to be productive in Crystal and [Domain-Driven Design (DDD)](https://en.
    dependencies:
      result:
        github: nicolab/crystal-result
-       version: ~> 2.0.0 # Check the latest version!
+       version: ~> 2.0.1 # Check the latest version!
 ```
 
 2. Run `shards install`
